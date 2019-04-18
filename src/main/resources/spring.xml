@@ -6,11 +6,122 @@
        xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-3.2.xsd
 	   http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-4.3.xsd">
 
-    <bean id="student" class="com.wuxy.entity.Student">
+    <!--<bean id="student" class="com.wuxy.entity.Student">
         <property name="id" value="1"></property>
-        <property name="name" value="tom"></property>
+        &lt;!&ndash;<property name="name" value="tom"></property>&ndash;&gt;
+        <property name="name">
+            <value><![CDATA[<tom>]]></value>
+        </property>
         <property name="age" value="29"></property>
         <property name="gender" value="男"></property>
+    </bean>
+
+    <bean id="student2" class="com.wuxy.entity.Student">
+        <property name="id" value="2"></property>
+        <property name="name" value="mic"></property>
+        <property name="age" value="26"></property>
+        <property name="gender" value="男"></property>
+    </bean>
+
+    <bean id="student3" class="com.wuxy.entity.Student">
+        <constructor-arg name="id" value="3"></constructor-arg>
+        <constructor-arg name="name" value="jack"></constructor-arg>
+        <constructor-arg name="age" value="30"></constructor-arg>
+        <constructor-arg name="gender" value="男"></constructor-arg>
+    </bean>
+
+    <bean id="student4" class="com.wuxy.entity.Student">
+        <constructor-arg index="0" value="3"></constructor-arg>
+        <constructor-arg index="1" value="jack"></constructor-arg>
+        <constructor-arg index="2" value="30"></constructor-arg>
+        <constructor-arg index="3" value="男"></constructor-arg>
+    </bean>-->
+
+    <!--&lt;!&ndash; 创建classes对象 &ndash;&gt;
+    <bean id="classes" class="com.wuxy.entity.Classes">
+        <property name="id" value="1"></property>
+        <property name="name" value="一班"></property>
+    </bean>
+
+    <bean id="stu" class="com.wuxy.entity.Student">
+        <property name="id" value="5"></property>
+        <property name="name" value="jim"></property>
+        <property name="age" value="26"></property>
+        <property name="gender" value="男"></property>
+        &lt;!&ndash; 将IOC容器中的classes对象赋值给stu对象的classes&ndash;&gt;
+        <property name="classes" ref="classes"></property>
+    </bean>-->
+
+    <!-- 有参构造创建classes对象-->
+    <!--<bean id="classes" class="com.wuxy.entity.Classes">
+        <constructor-arg name="id" value="1"></constructor-arg>
+        <constructor-arg name="name" value="一班"></constructor-arg>
+    </bean>
+
+    <bean id="stu" class="com.wuxy.entity.Student">
+        <constructor-arg name="id" value="3"></constructor-arg>
+        <constructor-arg name="name" value="jack"></constructor-arg>
+        <constructor-arg name="age" value="30"></constructor-arg>
+        <constructor-arg name="gender" value="男"></constructor-arg>
+        <constructor-arg name="classes" ref="classes"></constructor-arg>
+    </bean>-->
+
+    <!-- 创建student对象 -->
+    <!--<bean id="student" class="com.wuxy.entity.Student">
+        <constructor-arg name="id" value="1"></constructor-arg>
+        <constructor-arg name="name" value="jack"></constructor-arg>
+        <constructor-arg name="age" value="30"></constructor-arg>
+        <constructor-arg name="gender" value="男"></constructor-arg>
+    </bean>
+
+    <bean id="student2" class="com.wuxy.entity.Student">
+        <constructor-arg name="id" value="2"></constructor-arg>
+        <constructor-arg name="name" value="tom"></constructor-arg>
+        <constructor-arg name="age" value="28"></constructor-arg>
+        <constructor-arg name="gender" value="男"></constructor-arg>
+    </bean>
+
+    <bean id="student3" class="com.wuxy.entity.Student">
+        <constructor-arg name="id" value="3"></constructor-arg>
+        <constructor-arg name="name" value="mic"></constructor-arg>
+        <constructor-arg name="age" value="26"></constructor-arg>
+        <constructor-arg name="gender" value="男"></constructor-arg>
+    </bean>-->
+
+    <!-- Classes对象 -->
+
+
+    <bean id="student" class="com.wuxy.entity.Student">
+        <constructor-arg name="id" value="1"></constructor-arg>
+        <constructor-arg name="name" value="jack"></constructor-arg>
+        <constructor-arg name="age" value="30"></constructor-arg>
+        <constructor-arg name="gender" value="男"></constructor-arg>
+    </bean>
+
+    <bean id="student2" class="com.wuxy.entity.Student">
+        <constructor-arg name="id" value="2"></constructor-arg>
+        <constructor-arg name="name" value="tom"></constructor-arg>
+        <constructor-arg name="age" value="28"></constructor-arg>
+        <constructor-arg name="gender" value="男"></constructor-arg>
+    </bean>
+
+    <bean id="student3" class="com.wuxy.entity.Student">
+        <constructor-arg name="id" value="3"></constructor-arg>
+        <constructor-arg name="name" value="mic"></constructor-arg>
+        <constructor-arg name="age" value="26"></constructor-arg>
+        <constructor-arg name="gender" value="男"></constructor-arg>
+    </bean>
+
+    <bean id="classes" class="com.wuxy.entity.Classes">
+        <constructor-arg name="id" value="1"></constructor-arg>
+        <constructor-arg name="name" value="一班"></constructor-arg>
+        <constructor-arg name="students">
+            <list>
+                <ref bean="student"></ref>
+                <ref bean="student2"></ref>
+                <ref bean="student3"></ref>
+            </list>
+        </constructor-arg>
     </bean>
 
 </beans>

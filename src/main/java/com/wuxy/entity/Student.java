@@ -9,6 +9,7 @@ public class Student {
     private String name;
     private int age;
     private String gender;
+    private Classes classes;
 
     public int getId() {
         return id;
@@ -42,6 +43,14 @@ public class Student {
         this.gender = gender;
     }
 
+    public Classes getClasses() {
+        return classes;
+    }
+
+    public void setClasses(Classes classes) {
+        this.classes = classes;
+    }
+
     @Override
     public String toString() {
         return "Student{" +
@@ -49,6 +58,27 @@ public class Student {
                 ", name='" + name + '\'' +
                 ", age=" + age +
                 ", gender='" + gender + '\'' +
+                ", classes=" + classes +
                 '}';
+    }
+
+    public Student() {
+//        System.out.println("创建了student对象");
+    }
+
+    public Student(int id, String name, int age, String gender) {
+        System.out.println("通过有参构造函数创建了student对象");
+        this.id = id;
+        this.name = name;
+        this.age = age;
+        this.gender = gender;
+    }
+
+    public Student(int id, String name, int age, String gender, Classes classes) {
+        this.id = id;
+        this.name = name;
+        this.age = age;
+        this.gender = gender;
+        this.classes = classes;
     }
 }
